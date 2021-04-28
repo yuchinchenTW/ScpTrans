@@ -2566,7 +2566,7 @@ class Content {
 
 class Picture extends Applet
         implements WindowListener {
-
+    //
     JFrame frame;
     private BufferedImage img;
     JLabel label;
