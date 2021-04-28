@@ -1432,6 +1432,13 @@ class Content {
     }
 
     public void searchenglish(String in) {
+        boolean ch_3125 = false;
+        if (in.contains("3125") == true) {
+            ch_3125 = true;
+
+        }
+        
+        
         result = "";
         // System.out.print(001>999);
         try {
@@ -1922,6 +1929,7 @@ class Content {
                     }
 
                 }
+                if (ch_3125 == true) {
                 //scp-3125
                 //http://scp-wiki.wdfiles.com/local--html/scp-3125-unencrypted/19a551ea86bc6d2bd95b6e4cc40758497b7a00e0-11702915221798099076/www.scpwiki.com/
                 content = "";
@@ -2020,7 +2028,7 @@ class Content {
                 }
 
                 result += temp + "\n";
-
+                }
             } catch (IOException ex) {
                 this.result = ex.toString() + "\n Access denied";
             }
