@@ -1422,6 +1422,7 @@ class Content {
             result = result.replaceAll("</li>", "");
             result = result.replaceAll("</ul>", "");
             result = result.replaceAll("</p>", "");
+            result=this.delete_html(result);
 
             //System.out.println(result);
         } catch (IOException ex) {
@@ -1437,8 +1438,7 @@ class Content {
             ch_3125 = true;
 
         }
-        
-        
+
         result = "";
         // System.out.print(001>999);
         try {
@@ -1930,104 +1930,104 @@ class Content {
 
                 }
                 if (ch_3125 == true) {
-                //scp-3125
-                //http://scp-wiki.wdfiles.com/local--html/scp-3125-unencrypted/19a551ea86bc6d2bd95b6e4cc40758497b7a00e0-11702915221798099076/www.scpwiki.com/
-                content = "";
-                result += "\n\n";
-                content = IOUtils.toString(new URL("http://scp-wiki.wdfiles.com/local--html/scp-3125-unencrypted/19a551ea86bc6d2bd95b6e4cc40758497b7a00e0-11702915221798099076/www.scpwiki.com/"), "utf-8");
-                int top_3125 = content.indexOf("Item");
-                int bottom_3125 = content.indexOf("</p>", top_3125);
-                String temp = content.subSequence(top_3125, bottom_3125).toString();
-                temp = temp.replaceAll("</p>", "");
-                temp = temp.replaceAll("<p>", "");
-                temp = temp.replaceAll(",", ",\n");
-                temp = temp.replaceAll("<b>", "");
-                temp = temp.replaceAll("</b>", "");
-                result += temp + "\n\n";
+                    //scp-3125
+                    //http://scp-wiki.wdfiles.com/local--html/scp-3125-unencrypted/19a551ea86bc6d2bd95b6e4cc40758497b7a00e0-11702915221798099076/www.scpwiki.com/
+                    content = "";
+                    result += "\n\n";
+                    content = IOUtils.toString(new URL("http://scp-wiki.wdfiles.com/local--html/scp-3125-unencrypted/19a551ea86bc6d2bd95b6e4cc40758497b7a00e0-11702915221798099076/www.scpwiki.com/"), "utf-8");
+                    int top_3125 = content.indexOf("Item");
+                    int bottom_3125 = content.indexOf("</p>", top_3125);
+                    String temp = content.subSequence(top_3125, bottom_3125).toString();
+                    temp = temp.replaceAll("</p>", "");
+                    temp = temp.replaceAll("<p>", "");
+                    temp = temp.replaceAll(",", ",\n");
+                    temp = temp.replaceAll("<b>", "");
+                    temp = temp.replaceAll("</b>", "");
+                    result += temp + "\n\n";
 
-                top_3125 = content.indexOf("Object Class");
-                bottom_3125 = content.indexOf("</p>", top_3125);
-                temp = content.subSequence(top_3125, bottom_3125).toString();
-                temp = temp.replaceAll("</p>", "");
-                temp = temp.replaceAll("<p>", "");
-                temp = temp.replaceAll(",", ",\n");
-                temp = temp.replaceAll("<b>", "");
-                temp = temp.replaceAll("</b>", "");
-                result += temp + "\n\n";
+                    top_3125 = content.indexOf("Object Class");
+                    bottom_3125 = content.indexOf("</p>", top_3125);
+                    temp = content.subSequence(top_3125, bottom_3125).toString();
+                    temp = temp.replaceAll("</p>", "");
+                    temp = temp.replaceAll("<p>", "");
+                    temp = temp.replaceAll(",", ",\n");
+                    temp = temp.replaceAll("<b>", "");
+                    temp = temp.replaceAll("</b>", "");
+                    result += temp + "\n\n";
 
-                top_3125 = content.indexOf("Special Containment");
-                bottom_3125 = content.indexOf("END OF FILE</b>");
-                bottom_3125 = content.indexOf("</b>", bottom_3125);
+                    top_3125 = content.indexOf("Special Containment");
+                    bottom_3125 = content.indexOf("END OF FILE</b>");
+                    bottom_3125 = content.indexOf("</b>", bottom_3125);
 
-                temp = content.subSequence(top_3125, bottom_3125).toString();
-                temp = temp.replaceAll("</p>", "");
-                temp = temp.replaceAll("<p>", "");
-                temp = temp.replaceAll("Special Containment Procedures", "Special Containment Procedures:\n\n");
-                //  temp = temp.replaceAll(".", ".\n");
-                temp = temp.replaceAll(",", ",\n");
-                temp = temp.replaceAll("<b>", "");
-                temp = temp.replaceAll("</b>", "");
-                result += temp + "\n";
-                URL url = getClass().getResource("3125_eng.html");
-                File htmlFile = new File(url.getPath());
-                Desktop.getDesktop().browse(htmlFile.toURI());
+                    temp = content.subSequence(top_3125, bottom_3125).toString();
+                    temp = temp.replaceAll("</p>", "");
+                    temp = temp.replaceAll("<p>", "");
+                    temp = temp.replaceAll("Special Containment Procedures", "Special Containment Procedures:\n\n");
+                    //  temp = temp.replaceAll(".", ".\n");
+                    temp = temp.replaceAll(",", ",\n");
+                    temp = temp.replaceAll("<b>", "");
+                    temp = temp.replaceAll("</b>", "");
+                    result += temp + "\n";
+                    URL url = getClass().getResource("3125_eng.html");
+                    File htmlFile = new File(url.getPath());
+                    Desktop.getDesktop().browse(htmlFile.toURI());
 
-                top_3125 = content.indexOf("Special Containment Procedures", bottom_3125);
-                bottom_3125 = content.indexOf("END OF FILE</b>", top_3125);
-                bottom_3125 = content.indexOf("</b>", bottom_3125);
-                temp = content.subSequence(top_3125, bottom_3125).toString();
-                temp = temp.replaceAll("</p>", "");
-                temp = temp.replaceAll("<p>", "");
-                temp = temp.replaceAll("Special Containment Procedures", "Special Containment Procedures:\n\n");
-                //  temp = temp.replaceAll(".", ".\n");
-                temp = temp.replaceAll(",", ",\n");
-                temp = temp.replaceAll("<b>", "");
-                temp = temp.replaceAll("</b>", "");
+                    top_3125 = content.indexOf("Special Containment Procedures", bottom_3125);
+                    bottom_3125 = content.indexOf("END OF FILE</b>", top_3125);
+                    bottom_3125 = content.indexOf("</b>", bottom_3125);
+                    temp = content.subSequence(top_3125, bottom_3125).toString();
+                    temp = temp.replaceAll("</p>", "");
+                    temp = temp.replaceAll("<p>", "");
+                    temp = temp.replaceAll("Special Containment Procedures", "Special Containment Procedures:\n\n");
+                    //  temp = temp.replaceAll(".", ".\n");
+                    temp = temp.replaceAll(",", ",\n");
+                    temp = temp.replaceAll("<b>", "");
+                    temp = temp.replaceAll("</b>", "");
 
-                temp = temp.replaceAll("<li>", "");
-                temp = temp.replaceAll("</li>", "");
-                temp = temp.replaceAll("</a>", "");
-                temp = temp.replaceAll("</div>", "");
-                temp = temp.replaceAll("<blockquote>", "");
-                temp = temp.replaceAll("</blockquote>", "");
-                temp = temp.replaceAll("<br/>", "");
-                temp = temp.replaceAll("<br>", "");
-                temp = temp.replaceAll("<i>", "");
-                temp = temp.replaceAll("</i>", "");
-                temp = temp.replaceAll("<ol>", "");
-                temp = temp.replaceAll("</ol>", "");
+                    temp = temp.replaceAll("<li>", "");
+                    temp = temp.replaceAll("</li>", "");
+                    temp = temp.replaceAll("</a>", "");
+                    temp = temp.replaceAll("</div>", "");
+                    temp = temp.replaceAll("<blockquote>", "");
+                    temp = temp.replaceAll("</blockquote>", "");
+                    temp = temp.replaceAll("<br/>", "");
+                    temp = temp.replaceAll("<br>", "");
+                    temp = temp.replaceAll("<i>", "");
+                    temp = temp.replaceAll("</i>", "");
+                    temp = temp.replaceAll("<ol>", "");
+                    temp = temp.replaceAll("</ol>", "");
 
-                top_3125 = temp.indexOf("<div");
-                bottom_3125 = temp.indexOf(">", top_3125);
-                while (top_3125 > 0) {
-
-                    String delete = temp.subSequence(top_3125, bottom_3125 + 2).toString();
-                    System.out.println(delete);
-                    temp = temp.replaceAll(delete, " ");
-                    temp = temp.replace(delete, " ");
                     top_3125 = temp.indexOf("<div");
                     bottom_3125 = temp.indexOf(">", top_3125);
-                    if (bottom_3125 == -1) {
-                        top_3125 = -1;
+                    while (top_3125 > 0) {
+
+                        String delete = temp.subSequence(top_3125, bottom_3125 + 2).toString();
+                        System.out.println(delete);
+                        temp = temp.replaceAll(delete, " ");
+                        temp = temp.replace(delete, " ");
+                        top_3125 = temp.indexOf("<div");
+                        bottom_3125 = temp.indexOf(">", top_3125);
+                        if (bottom_3125 == -1) {
+                            top_3125 = -1;
+                        }
                     }
-                }
 
-                top_3125 = temp.indexOf("<a");
-                bottom_3125 = temp.indexOf("\">", top_3125);
-                while (top_3125 > 0) {
-
-                    String delete = temp.subSequence(top_3125, bottom_3125 + 2).toString();
-                    System.out.println(delete);
-                    temp = temp.replaceAll(delete, " ");
-                    temp = temp.replace(delete, " ");
                     top_3125 = temp.indexOf("<a");
                     bottom_3125 = temp.indexOf("\">", top_3125);
-                    if (bottom_3125 == -1) {
-                        top_3125 = -1;
-                    }
-                }
+                    while (top_3125 > 0) {
 
-                result += temp + "\n";
+                        String delete = temp.subSequence(top_3125, bottom_3125 + 2).toString();
+                        System.out.println(delete);
+                        temp = temp.replaceAll(delete, " ");
+                        temp = temp.replace(delete, " ");
+                        top_3125 = temp.indexOf("<a");
+                        bottom_3125 = temp.indexOf("\">", top_3125);
+                        if (bottom_3125 == -1) {
+                            top_3125 = -1;
+                        }
+                    }
+
+                    result += temp + "\n";
                 }
             } catch (IOException ex) {
                 this.result = ex.toString() + "\n Access denied";
@@ -2189,10 +2189,7 @@ class Content {
                     divtop = -1;
                 }
             }
-            // result = result.replace(">", "");
-
-            //System.out.println(result);
-            result = result.replace(">", "");
+            result=delete_html(result);
             result = result.replaceAll("\n\n\n", "");
 
         } catch (IOException ex) {
@@ -2570,10 +2567,49 @@ class Content {
         Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
         clipboard.setContents(stringSelection, null);
     }
+
+    public String delete_html(String in) {
+        String out = in;
+        //5282
+        int top_3125 = out.indexOf("<a");
+        int bottom_3125 = out.indexOf("\">", top_3125);
+        while (top_3125 > 0) {
+
+            String delete = out.subSequence(top_3125, bottom_3125 + 2).toString();
+            //  System.out.println(delete);
+            out = out.replaceAll(delete, " ");
+            out = out.replace(delete, " ");
+            top_3125 = out.indexOf("<a");
+            bottom_3125 = out.indexOf("\">", top_3125);
+            if (bottom_3125 == -1) {
+                top_3125 = -1;
+            }
+        }
+         top_3125 = out.indexOf("<td");
+         bottom_3125 = out.indexOf("\">", top_3125);
+        while (top_3125 > 0) {
+
+            String delete = out.subSequence(top_3125, bottom_3125 + 2).toString();
+            //  System.out.println(delete);
+            out = out.replaceAll(delete, " ");
+            out = out.replace(delete, " ");
+            top_3125 = out.indexOf("<td");
+            bottom_3125 = out.indexOf("\">", top_3125);
+            if (bottom_3125 == -1) {
+                top_3125 = -1;
+            }
+        }
+        out = out.replace("</td>", "");
+        out = out.replace("<em>", "");
+        out = out.replace("</em>", "");
+        out = out.replace("</span>", "");
+        return out;
+    }
 }
 
 class Picture extends Applet
         implements WindowListener {
+
     //
     JFrame frame;
     private BufferedImage img;
