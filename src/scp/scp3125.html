@@ -1,0 +1,271 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="html-block-html"
+	xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+		<link rel="stylesheet" href="/common--theme/base/css/html-block.css"/>
+	</head>
+     
+	
+		<style type="text/css">
+    /* CSS duplicated from Wikidot proper -_- */
+    
+    
+    body {
+        font-family: verdana, arial, helvetica, sans-serif;
+        font-size: 12.8px; /* 16px * 0.8 */
+        color: #333;
+        line-height: 141%;
+    }
+
+    .classified-info {
+        display: none;
+    }
+
+    blockquote {
+        border: 1px dashed #999;
+        padding: 0 12.8px;
+        background-color: #f4f4f4;
+    }
+
+    a {
+        color: #b01;
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    .collapsed {
+        display: none;
+    }
+
+    h4 {
+        font-size: 130%;
+        font-weight: bold;
+        margin-bottom: 0;
+    }
+
+    /* Keypad specific */
+    .keypad {
+        background: linear-gradient(to bottom, #D0D0D0 0%, #FFFFFF 80%, #CCCCCC 100%), #D4D4D4;
+        padding: 6.4px;
+        border-radius: 19.2px;
+        margin: 25.6px;
+        margin-left: auto;
+        margin-right: auto;
+        border: 2px solid #1F0D12;
+        box-shadow: 0 3px 5px black, 0 3px 9px rgba(0, 0, 0, 0.5);
+        border-spacing: 6px;
+        line-height: 30px;
+    }
+
+    .keypad-readout {
+        background: linear-gradient(to top, #1A211E 1%, #000000 100%), black;
+        color: #E22933;
+        font-size: 27px;
+        font-family: Consolas, monospace, sans-serif;
+        font-weight: bold;
+        border-radius: 3.84px;
+        border-top-left-radius: 6.4px;
+        border-top-right-radius: 6.4px;
+        border: 2px solid #32443A;
+        text-align: center;
+        padding: 7px;
+        text-shadow: 0 0 6px red;
+    }
+
+    .regular-button {
+        background: #714144;
+        color: white;
+        font-family: monospace,sans-serif;
+        font-weight: bold;
+        text-align: center;
+        width: 47.36px;
+        height: 47.36px;
+        border-radius: 5.12px;
+        font-size: 23px;
+        transition: background 0.1s ease-out;
+        box-shadow: 0 3px 7px rgba(0, 0, 0, 0.6);
+    }
+    .regular-button:hover {
+        background:#944449;
+    }
+    .regular-button:active {
+        background:#B9475B;
+    }
+
+    .clr-button {
+        border-bottom-left-radius: 10.8px;
+        background: #9E0E17;
+    }
+    .clr-button:hover {
+        background: #B90B15;
+    }
+    .clr-button:active {
+        background: #DE0814;
+    }
+
+    .go-button {
+        border-bottom-right-radius: 10.8px;
+        background: #43862E;
+    }
+    .go-button:hover {
+        background: #469A2B;
+    }
+    .go-button:active {
+        background: #4EC527;
+    }
+
+    .keypad-readout,
+    .regular-button {
+        -webkit-touch-callout: none; /* iOS Safari */
+        -webkit-user-select  : none; /* Chrome/Safari/Opera */
+        -khtml-user-select   : none; /* Konqueror */
+        -moz-user-select     : none; /* Firefox */
+        -ms-user-select      : none; /* IE/Edge */
+        user-select          : none;
+        cursor: default;
+    }
+   
+</style>
+		<script type="text/javascript">
+    var magicNumber = [,,,,,].length;
+    var scpNumber = Math.pow(magicNumber, magicNumber);
+    var emptyReadout = "\u00A0"; // non-breaking space
+    var integer=0;
+    var input = [];
+    var maxInputLength = magicNumber;
+
+    var busy = false;
+    
+    
+  
+   
+  
+  
+    function press(keyText) {
+        if(busy) {
+        return;
+        }
+
+        var readout = document.body.querySelector(".keypad-readout");
+
+        if(keyText === "确认") {
+        busy = true;
+
+        if(
+        input.map(function(digit) {
+        return parseInt(digit, 10);
+        }).reduce(function(a, b) {
+        return a * b;
+        }, 1) === scpNumber
+        ) {
+        
+        
+        
+        
+        setTimeout(function() {
+        readout.textContent = '允许访问';
+        setTimeout(function(){ 
+            
+      
+    
+            window.close();
+        }, 1000);
+        }, 0);
+        setTimeout(function() {
+        document.querySelector(".classified-info").style.display = "initial";
+        }, 1000);
+        setTimeout(function() {
+        readout.textContent = emptyReadout;
+        // Leave busy, disabling keypad
+        }, 2000);
+        } else {
+        setTimeout(function() {
+        readout.textContent = '拒绝访问';
+         setTimeout(function(){ 
+            
+      
+    
+           window.close();
+          }, 1000);
+        }, 0);
+        setTimeout(function() {
+        readout.textContent = '\u0C7F';
+        }, 1900);
+        setTimeout(function() {
+        input = [];
+        readout.textContent = emptyReadout;
+        busy = false;
+        }, 2000);
+        }
+        }
+
+        else if(keyText === "清除") {
+        input = [];
+        }
+
+        else {
+        if(input.length >= maxInputLength) {
+        return;
+        }
+        input.push(keyText);
+        }
+
+        readout.textContent = input.length === 0 ? emptyReadout : input.map(function() {
+        return '-';
+        }).join("");
+    }
+
+    // Section visibility toggles
+    var toggle = function(cls) {
+        var collapsed = document.querySelectorAll("." + cls + ".collapsed");
+        var expanded = document.querySelectorAll("." + cls + ":not(.collapsed)");
+        var i;
+        for(i = 0; i < collapsed.length; i++) {
+        collapsed[i].classList.remove("collapsed");
+        }
+        for(i = 0; i < expanded.length; i++) {
+        expanded[i].classList.add("collapsed");
+        }
+    };
+
+		</script>
+		<div class="public-info">
+			
+			<table class="keypad">
+				<tbody>
+					<tr>
+						<td colspan="3" class="keypad-readout">&nbsp;
+						</th>
+					</tr>
+					<tr>
+						<td class="regular-button" onclick="press('7');">7</td>
+						<td class="regular-button" onclick="press('8');">8</td>
+						<td class="regular-button" onclick="press('9');">9</td>
+					</tr>
+					<tr>
+						<td class="regular-button" onclick="press('4');">4</td>
+						<td class="regular-button" onclick="press('5');">5</td>
+						<td class="regular-button" onclick="press('6');">6</td>
+					</tr>
+					<tr>
+						<td class="regular-button" onclick="press('1');">1</td>
+						<td class="regular-button" onclick="press('2');">2</td>
+						<td class="regular-button" onclick="press('3');">3</td>
+					</tr>
+					<tr>
+						<td class="regular-button clr-button" onclick="press('清除');">清除</td>
+						<td class="regular-button" onclick="press('0');">0</td>
+						<td class="regular-button go-button" onclick="press('确认');">确认</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		
+		<script type="text/javascript" src="/common--javascript/html-block-iframe.js"></script>
+	
+</html>
