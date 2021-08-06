@@ -791,6 +791,8 @@ class Content {
                     name = IOUtils.toString(new URL("http://scp-wiki-cn.wikidot.com/scp-series-5"), "utf-8");
                 } else if (check_num >= 5000 && check_num < 6000) {
                     name = IOUtils.toString(new URL("http://scp-wiki-cn.wikidot.com/scp-series-6"), "utf-8");
+                } else if (check_num >= 6000 && check_num < 7000) {
+                    name = IOUtils.toString(new URL("http://scp-wiki-cn.wikidot.com/scp-series-7"), "utf-8");
                 }
 
                 int ckname = name.indexOf(in);
@@ -1377,6 +1379,8 @@ class Content {
                 name = IOUtils.toString(new URL("http://scp-wiki-cn.wikidot.com/scp-series-5"), "utf-8");
             } else if (check_num >= 5000 && check_num < 6000) {
                 name = IOUtils.toString(new URL("http://scp-wiki-cn.wikidot.com/scp-series-6"), "utf-8");
+            } else if (check_num >= 6000 && check_num < 7000) {
+                name = IOUtils.toString(new URL("http://scp-wiki-cn.wikidot.com/scp-series-7"), "utf-8");
             }
 
             int ckname = name.indexOf(in);
@@ -1422,7 +1426,7 @@ class Content {
             result = result.replaceAll("</li>", "");
             result = result.replaceAll("</ul>", "");
             result = result.replaceAll("</p>", "");
-            result=this.delete_html(result);
+            result = this.delete_html(result);
 
             //System.out.println(result);
         } catch (IOException ex) {
@@ -1461,6 +1465,8 @@ class Content {
                     name = IOUtils.toString(new URL("http://www.scp-wiki.net/scp-series-5"), "utf-8");
                 } else if (check_num >= 5000 && check_num < 6000) {
                     name = IOUtils.toString(new URL("http://www.scp-wiki.net/scp-series-6"), "utf-8");
+                } else if (check_num >= 6000 && check_num < 7000) {
+                    name = IOUtils.toString(new URL("http://www.scp-wiki.net/scp-series-7"), "utf-8");
                 }
                 //    System.out.println("reach scp checking model");
                 int ckname = name.indexOf(in);
@@ -2064,6 +2070,8 @@ class Content {
                 name = IOUtils.toString(new URL("http://www.scp-wiki.net/scp-series-5"), "utf-8");
             } else if (check_num >= 5000 && check_num < 6000) {
                 name = IOUtils.toString(new URL("http://www.scp-wiki.net/scp-series-6"), "utf-8");
+            } else if (check_num >= 6000 && check_num < 7000) {
+                name = IOUtils.toString(new URL("http://www.scp-wiki.net/scp-series-7"), "utf-8");
             }
 
             int ckname = name.indexOf(in);
@@ -2189,7 +2197,7 @@ class Content {
                     divtop = -1;
                 }
             }
-            result=delete_html(result);
+            result = delete_html(result);
             result = result.replaceAll("\n\n\n", "");
 
         } catch (IOException ex) {
@@ -2568,7 +2576,7 @@ class Content {
         clipboard.setContents(stringSelection, null);
     }
 
-    public String delete_html(String in) {
+    public static String delete_html(String in) {
         String out = in;
         //5282
         int top_3125 = out.indexOf("<a");
@@ -2585,8 +2593,8 @@ class Content {
                 top_3125 = -1;
             }
         }
-         top_3125 = out.indexOf("<td");
-         bottom_3125 = out.indexOf("\">", top_3125);
+        top_3125 = out.indexOf("<td");
+        bottom_3125 = out.indexOf("\">", top_3125);
         while (top_3125 > 0) {
 
             String delete = out.subSequence(top_3125, bottom_3125 + 2).toString();
@@ -2802,6 +2810,18 @@ class ScpDocument extends Applet
             public void actionPerformed(ActionEvent e) {
 
                 taleshttp = "http://scp-wiki-cn.wikidot.com/scp-series-1-tales-edition";
+                try {
+                    String content = IOUtils.toString(new URL("http://scp-wiki-cn.wikidot.com/scp-series-1-tales-edition"), "utf-8");
+                    int zero_1 = content.indexOf("001提案");
+                    int end = content.indexOf("footnotes-footer", zero_1);
+                    String result = content.substring(zero_1, end);
+                    result = Content.delete_html(result);
+                    //System.out.println(result);
+                } catch (MalformedURLException ex) {
+                    Logger.getLogger(ScpDocument.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (IOException ex) {
+                    Logger.getLogger(ScpDocument.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
 
         });
@@ -2864,7 +2884,7 @@ class ScpDocument extends Applet
         //box.addItem("");
         box.setSelectedIndex(0);
         box.setVisible(true);
-        this.box.setSize(150, 30);
+        this.box.setSize(200, 30);
         this.box.setLayout(null);
         box.setLocation(0, 0);
         // box.showPopup();
