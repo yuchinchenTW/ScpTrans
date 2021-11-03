@@ -135,7 +135,7 @@ public class Scp extends Applet
         this.buttonplace.setLocation(800, 150);
         //  this.buttonplace.setBackground(Color.red);
 
-        voice = new JButton("Speak(English only)");
+        voice = new JButton("Speak(English only)");//speak
         voice.setSize(180, 50);
         voice.setVisible(true);
         voice.setLayout(null);
