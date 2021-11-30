@@ -2085,7 +2085,7 @@ class Content {
             name = name.replaceAll(" ", "");
             name = name.replaceAll("<strong>", "");
             name = name.replaceAll("</strong>", "");
-            // name = ZHConverter.convert(name, ZHConverter.TRADITIONAL);
+            // name = ZHConverter.convert(name, ZHConverter.TRADITIONAL);//https://github.com/yuchinchenTW/ScpTrans.git
             String content = IOUtils.toString(new URL("https://scp-wiki.wikidot.com/" + in), "utf-8");
             System.out.println(content);
             int scp_name_top = content.indexOf("<div class=\"credit first\">");
