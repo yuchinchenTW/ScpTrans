@@ -1454,21 +1454,23 @@ class Content {
             try {
                 String name = "";
                 if (check_num < 1000) {
-                    name = IOUtils.toString(new URL("http://www.scp-wiki.net/scp-series"), "utf-8");
+                    name = IOUtils.toString(new URL("https://scp-wiki.wikidot.com/scp-series"), "utf-8");
+                    //https://scp-wiki.wikidot.com/scp-series
                 } else if (check_num >= 1000 && check_num < 2000) {
-                    name = IOUtils.toString(new URL("http://www.scp-wiki.net/scp-series-2"), "utf-8");
+                    name = IOUtils.toString(new URL("https://scp-wiki.wikidot.com/scp-series-2"), "utf-8");
                 } else if (check_num >= 2000 && check_num < 3000) {
-                    name = IOUtils.toString(new URL("http://www.scp-wiki.net/scp-series-3"), "utf-8");
+                    name = IOUtils.toString(new URL("https://scp-wiki.wikidot.com/scp-series-3"), "utf-8");
                 } else if (check_num >= 3000 && check_num < 4000) {
-                    name = IOUtils.toString(new URL("http://www.scp-wiki.net/scp-series-4"), "utf-8");
+                    name = IOUtils.toString(new URL("https://scp-wiki.wikidot.com/scp-series-4"), "utf-8");
                 } else if (check_num >= 4000 && check_num < 5000) {
-                    name = IOUtils.toString(new URL("http://www.scp-wiki.net/scp-series-5"), "utf-8");
+                    name = IOUtils.toString(new URL("https://scp-wiki.wikidot.com/scp-series-5"), "utf-8");
                 } else if (check_num >= 5000 && check_num < 6000) {
-                    name = IOUtils.toString(new URL("http://www.scp-wiki.net/scp-series-6"), "utf-8");
+                    name = IOUtils.toString(new URL("https://scp-wiki.wikidot.com/scp-series-6"), "utf-8");
                 } else if (check_num >= 6000 && check_num < 7000) {
-                    name = IOUtils.toString(new URL("http://www.scp-wiki.net/scp-series-7"), "utf-8");
+                    name = IOUtils.toString(new URL("https://scp-wiki.wikidot.com/scp-series-7"), "utf-8");
                 }
-                //    System.out.println("reach scp checking model");
+                   System.out.println(name);
+                //System.out.println(IOUtils.toString(new URL("http://www.scp-wiki.net/scp-series"), "utf-8")+"IOUtils.toString(new URL(\"http://www.scp-wiki.net/scp-series\"), \"utf-8\")");
                 int ckname = name.indexOf(in);
                 int ck_middle = name.indexOf("</a>", ckname);
                 int ck_bottom = name.indexOf("</li>", ck_middle);
@@ -1480,8 +1482,8 @@ class Content {
                 name = name.replaceAll("</strong>", "");
                 name = name.replaceAll("&quot", "");
                 //   System.out.println("reach after scp checked model");
-                String content = IOUtils.toString(new URL("http://www.scp-wiki.net/" + in), "utf-8");
-
+                String content = IOUtils.toString(new URL("https://scp-wiki.wikidot.com/" + in), "utf-8");
+                System.out.println(content);
                 String firstresult = "";
                 int top = content.indexOf("<div id=\"page-title\">");
                 int bottom = content.indexOf("<!-- wikidot_bottom_300x250 -->");//special bottom for cn web
@@ -2059,19 +2061,19 @@ class Content {
         try {
             String name = "";
             if (check_num < 1000) {
-                name = IOUtils.toString(new URL("http://www.scp-wiki.net/scp-series"), "utf-8");
+                name = IOUtils.toString(new URL("https://scp-wiki.wikidot.com/scp-series"), "utf-8");
             } else if (check_num >= 1000 && check_num < 2000) {
-                name = IOUtils.toString(new URL("http://www.scp-wiki.net/scp-series-2"), "utf-8");
+                name = IOUtils.toString(new URL("https://scp-wiki.wikidot.com/scp-series-2"), "utf-8");
             } else if (check_num >= 2000 && check_num < 3000) {
-                name = IOUtils.toString(new URL("http://www.scp-wiki.net/scp-series-3"), "utf-8");
+                name = IOUtils.toString(new URL("https://scp-wiki.wikidot.com/scp-series-3"), "utf-8");
             } else if (check_num >= 3000 && check_num < 4000) {
-                name = IOUtils.toString(new URL("http://www.scp-wiki.net/scp-series-4"), "utf-8");
+                name = IOUtils.toString(new URL("https://scp-wiki.wikidot.com/scp-series-4"), "utf-8");
             } else if (check_num >= 4000 && check_num < 5000) {
-                name = IOUtils.toString(new URL("http://www.scp-wiki.net/scp-series-5"), "utf-8");
+                name = IOUtils.toString(new URL("https://scp-wiki.wikidot.com/scp-series-5"), "utf-8");
             } else if (check_num >= 5000 && check_num < 6000) {
-                name = IOUtils.toString(new URL("http://www.scp-wiki.net/scp-series-6"), "utf-8");
+                name = IOUtils.toString(new URL("https://scp-wiki.wikidot.com/scp-series-6"), "utf-8");
             } else if (check_num >= 6000 && check_num < 7000) {
-                name = IOUtils.toString(new URL("http://www.scp-wiki.net/scp-series-7"), "utf-8");
+                name = IOUtils.toString(new URL("https://scp-wiki.wikidot.com/scp-series-7"), "utf-8");
             }
 
             int ckname = name.indexOf(in);
@@ -2084,7 +2086,8 @@ class Content {
             name = name.replaceAll("<strong>", "");
             name = name.replaceAll("</strong>", "");
             // name = ZHConverter.convert(name, ZHConverter.TRADITIONAL);
-            String content = IOUtils.toString(new URL("http://www.scpwiki.com/" + in), "utf-8");
+            String content = IOUtils.toString(new URL("https://scp-wiki.wikidot.com/" + in), "utf-8");
+            System.out.println(content);
             int scp_name_top = content.indexOf("<div class=\"credit first\">");
             int scp_name_bottom = content.indexOf("<strong>SCP-" + number + "：</strong>");
             int scp_name_bottom_bottom = content.indexOf("</strong>", scp_name_bottom);
