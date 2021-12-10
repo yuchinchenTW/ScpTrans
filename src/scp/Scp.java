@@ -1942,7 +1942,8 @@ class Content {
                     //http://scp-wiki.wdfiles.com/local--html/scp-3125-unencrypted/19a551ea86bc6d2bd95b6e4cc40758497b7a00e0-11702915221798099076/www.scpwiki.com/
                     content = "";
                     result += "\n\n";
-                    content = IOUtils.toString(new URL("http://scp-wiki.wdfiles.com/local--html/scp-3125-unencrypted/19a551ea86bc6d2bd95b6e4cc40758497b7a00e0-11702915221798099076/www.scpwiki.com/"), "utf-8");
+                    content = IOUtils.toString(new URL("https://scp-wiki.wdfiles.com/local--html/scp-3125-unencrypted/19a551ea86bc6d2bd95b6e4cc40758497b7a00e0-11702915221798099076/www.scpwiki.com/"), "utf-8");
+                    //https://scp-wiki.wikidot.com/scp-series
                     int top_3125 = content.indexOf("Item");
                     int bottom_3125 = content.indexOf("</p>", top_3125);
                     String temp = content.subSequence(top_3125, bottom_3125).toString();
@@ -2434,7 +2435,7 @@ class Content {
                     divtop = -1;
                 }
             }
-
+            
             int tabletop = firstresult.indexOf("<table");
             int tablebottom = firstresult.indexOf(">", tabletop);
             while (tabletop > 0) {
@@ -2631,7 +2632,11 @@ class Picture extends Applet
         frame.setLayout(null);
         frame.setSize(1000, 800);
         frame.setVisible(true);
-
+        StringBuilder nw= new StringBuilder(input);
+        nw.insert(4,"s");
+        input=nw.toString();
+        //System.out.println(nw.toString());
+        
         img = ImageIO.read(new URL(input));
 
         img = getScaledImage(img, 800, 600);
